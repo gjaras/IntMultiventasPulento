@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package intmultiventaspulento;
+package gava.intmultiventaspulento;
+
+import java.intmultiventaspulento.RequesterClass;
 
 /**
  *
@@ -77,9 +79,9 @@ public class requestJFrame extends javax.swing.JFrame {
         
         RequesterClass rqcl = new RequesterClass();
         try{
-            byte[] btarr = (byte[])rqcl.getImgBytes(countryName);
+            String result = (String)rqcl.getEstList(countryName);
 
-            new responseJFrame(btarr).setVisible(true);
+            new estListJFrame(result).setVisible(true);
             this.setVisible(false);
         }catch(Exception e){
             new errorFrame(e.getMessage()).setVisible(true);
