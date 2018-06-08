@@ -77,10 +77,10 @@ public class requestJFrame extends javax.swing.JFrame {
         
         RequesterClass rqcl = new RequesterClass();
         try{
-        byte[] btarr = (byte[])rqcl.getImgBytes(countryName);
-        
-        new responseJFrame(btarr).setVisible(true);
-        this.setVisible(false);
+            byte[] btarr = (byte[])rqcl.getImgBytes(countryName);
+
+            new responseJFrame(btarr).setVisible(true);
+            this.setVisible(false);
         }catch(Exception e){
             new errorFrame(e.getMessage()).setVisible(true);
             this.setVisible(false);
