@@ -34,7 +34,9 @@ class RequesterClass {
         def response = request.getText(requestProperties: ['user-key': 'fe72fbe77768492c61bdbf334d892f74'])
         println response
         def parsed_json = new JsonSlurper().parseText(response)
-        
+        if (parsed_json.location_suggestions.empty) {
+            throw new Exception("Busqueda no devolvió resultados");
+        }
         def img_url = parsed_json.location_suggestions[0].country_flag_url.replaceAll(java.util.regex.Pattern.quote('\\'),"")
         println img_url
         URL req = (img_url).toURL()

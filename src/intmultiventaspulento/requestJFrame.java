@@ -76,10 +76,15 @@ public class requestJFrame extends javax.swing.JFrame {
         String countryName = jTextField1.getText();
         
         RequesterClass rqcl = new RequesterClass();
+        try{
         byte[] btarr = (byte[])rqcl.getImgBytes(countryName);
         
         new responseJFrame(btarr).setVisible(true);
         this.setVisible(false);
+        }catch(Exception e){
+            new errorFrame(e.getMessage()).setVisible(true);
+            this.setVisible(false);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
