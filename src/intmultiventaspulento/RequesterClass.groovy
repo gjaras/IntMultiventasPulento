@@ -51,5 +51,12 @@ class RequesterClass {
         
         return returnMap
     }
+    
+    def requestIngredientes(){
+        def request = ("http://localhost:81/integracionwebservice/testws").toURL()
+        
+        def parsed_json = new JsonSlurper().parseText(response)
+        parsed_json
+    }
 }
 
